@@ -33,7 +33,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
         child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
-              title: const Text("أسلامي"),
+              title: const Text("Isalmi"),
             ),
             body: Container(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
