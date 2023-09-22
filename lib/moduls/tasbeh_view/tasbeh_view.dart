@@ -22,8 +22,7 @@ class _TasbehViewState extends State<TasbehView> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    print(allAdaya.length - 1);
-    print(adaya());
+
     var text = adaya();
 
     return Column(
@@ -88,8 +87,8 @@ class _TasbehViewState extends State<TasbehView> {
 
   String adaya() {
     String title = "";
-    if (cotTasbeh == allAdaya.length - 1) {
-      cotTasbeh = 0;
+    if (cotTasbeh == allAdaya.length) {
+      cotTasbeh = -1;
     } else {
       title = allAdaya[cotTasbeh];
     }
