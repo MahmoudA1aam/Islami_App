@@ -86,12 +86,10 @@ class _TasbehViewState extends State<TasbehView> {
   }
 
   String adaya() {
-    String title = "";
+    String title;
     if (cotTasbeh == allAdaya.length) {
-      cotTasbeh = -1;
-    } else {
-      title = allAdaya[cotTasbeh];
+      cotTasbeh = 0;
     }
-    return title;
+    return title = allAdaya[cotTasbeh];
   }
 }
