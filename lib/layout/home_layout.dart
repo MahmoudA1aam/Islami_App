@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:isalmi/core/theme/application_theme.dart';
 import 'package:isalmi/moduls/Radio_view/radio_view.dart';
 import 'package:isalmi/moduls/hadeth_view/hadeth_view.dart';
 import 'package:isalmi/moduls/quran_view/quran_view.dart';
@@ -26,15 +28,21 @@ class _HomeLayoutState extends State<HomeLayout> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/background.png"),
+                image: AssetImage(ApplicationTheme.isDark
+                    ? "assets/images/background_dark.png"
+                    : "assets/images/background.png"),
                 fit: BoxFit.cover)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Text("Isalmi"),
+            title: Text(
+              AppLocalizations.of(context)!.islami,
+              style: TextStyle(color: theme.colorScheme.secondary),
+            ),
           ),
           body: Screens[selectedindex],
           bottomNavigationBar: BottomNavigationBar(
@@ -44,22 +52,23 @@ class _HomeLayoutState extends State<HomeLayout> {
               });
             },
             currentIndex: selectedindex,
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                  label: "quran",
-                  icon: ImageIcon(AssetImage("assets/images/quran.png"))),
+                  label: AppLocalizations.of(context)!.quran,
+                  icon: const ImageIcon(AssetImage("assets/images/quran.png"))),
               BottomNavigationBarItem(
-                  label: "Hadeth",
-                  icon: ImageIcon(
+                  label: AppLocalizations.of(context)!.hadeth,
+                  icon: const ImageIcon(
                       AssetImage("assets/images/quran-quran-svgrepo-com.png"))),
               BottomNavigationBarItem(
-                  label: "Tasbeh",
-                  icon: ImageIcon(AssetImage("assets/images/sebha.png"))),
+                  label: AppLocalizations.of(context)!.tasbeh,
+                  icon: const ImageIcon(AssetImage("assets/images/sebha.png"))),
               BottomNavigationBarItem(
-                  label: "Radio",
-                  icon: ImageIcon(AssetImage("assets/images/radio.png"))),
+                  label: AppLocalizations.of(context)!.radio,
+                  icon: const ImageIcon(AssetImage("assets/images/radio.png"))),
               BottomNavigationBarItem(
-                  label: "Setting", icon: Icon(Icons.settings)),
+                  label: AppLocalizations.of(context)!.settings,
+                  icon: Icon(Icons.settings)),
             ],
           ),
         ));

@@ -19,8 +19,8 @@ class QuranItems extends StatelessWidget {
           style: theme.textTheme.bodyMedium,
         )),
         Container(
-          width: 1.2,
-          color: theme.primaryColor,
+          width: 1.4,
+          color: theme.colorScheme.onSecondary,
           height: 47,
         ),
         Expanded(

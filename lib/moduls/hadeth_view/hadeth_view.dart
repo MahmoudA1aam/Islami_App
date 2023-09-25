@@ -21,21 +21,19 @@ class _HadethViewState extends State<HadethView> {
     return Column(
       children: [
         Image.asset("assets/images/ahadeth_image.png"),
-        Divider(
+      const Divider(
           thickness: 1.5,
           indent: 30,
           endIndent: 30,
-          color: theme.primaryColor,
         ),
         Text(
           "الأحاديث",
           style: theme.textTheme.bodyMedium,
         ),
-        Divider(
+        const Divider(
           thickness: 1.5,
           indent: 30,
           endIndent: 30,
-          color: theme.primaryColor,
         ),
         Expanded(
             child: ListView.separated(
@@ -51,11 +49,10 @@ class _HadethViewState extends State<HadethView> {
                 allHedeth[index].tilte,
                 textAlign: TextAlign.center,
               )),
-          separatorBuilder: (context, index) => Divider(
+              separatorBuilder: (context, index) => const Divider(
             thickness: 1.5,
             indent: 60,
             endIndent: 60,
-            color: theme.primaryColor,
           ),
         ))
       ],

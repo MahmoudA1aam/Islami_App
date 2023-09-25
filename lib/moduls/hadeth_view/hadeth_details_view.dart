@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:isalmi/moduls/hadeth_view/hadeth_view.dart';
+
+import '../../core/theme/application_theme.dart';
 
 class HadethDetailsView extends StatelessWidget {
   const HadethDetailsView({super.key});
@@ -12,14 +15,16 @@ class HadethDetailsView extends StatelessWidget {
     var theme = Theme.of(context);
     var argu = ModalRoute.of(context)!.settings.arguments as HadethContent;
     return Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/background.png"),
+                image: AssetImage(ApplicationTheme.isDark
+                    ? "assets/images/background_dark.png"
+                    : "assets/images/background.png"),
                 fit: BoxFit.cover)),
         child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
-              title: const Text("Isalmi"),
+              title: Text(AppLocalizations.of(context)!.islami),
             ),
             body: Container(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
@@ -28,19 +33,19 @@ class HadethDetailsView extends StatelessWidget {
               width: mediaquery.width,
               height: mediaquery.height,
               decoration: BoxDecoration(
-                  color: const Color(0xFFF8F8F8).withOpacity(0.8),
+                  color: theme.colorScheme.secondaryContainer.withOpacity(0.8),
                   borderRadius: BorderRadius.circular(25)),
               child: Column(
                 children: [
                   Text(
                     " ${argu.tilte}",
-                    style: theme.textTheme.bodyMedium,
+                    style: theme.textTheme.bodyMedium!
+                        .copyWith(color: theme.colorScheme.onSurface),
                   ),
                   const SizedBox(
                     width: 4,
                   ),
                   Divider(
-                    color: theme.primaryColor,
                     thickness: 1.2,
                     indent: 50,
                     endIndent: 50,
@@ -51,7 +56,8 @@ class HadethDetailsView extends StatelessWidget {
                       itemBuilder: (context, index) => Text(
                         argu.content,
                         textAlign: TextAlign.center,
-                        style: theme.textTheme.bodySmall,
+                        style: theme.textTheme.bodySmall!
+                            .copyWith(color: theme.colorScheme.onSurface),
                       ),
                     ),
                   )

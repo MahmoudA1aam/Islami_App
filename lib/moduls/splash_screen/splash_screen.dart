@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:isalmi/core/theme/application_theme.dart';
 import 'package:isalmi/layout/home_layout.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,7 +25,9 @@ class _SplashScreenState extends State<SplashScreen> {
     var mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
       body: Image.asset(
-        "assets/images/Group 10.png",
+        ApplicationTheme.isDark
+            ? "assets/images/splash_dark.png"
+            : "assets/images/splash_light.png",
         fit: BoxFit.cover,
         width: mediaQuery.width,
         height: mediaQuery.height,

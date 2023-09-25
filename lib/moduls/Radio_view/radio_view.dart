@@ -15,7 +15,8 @@ class RadioView extends StatelessWidget {
         ),
         Text(
           "إذاعة القرآن الكريم",
-          style: theme.textTheme.bodyMedium,
+          style: theme.textTheme.bodyMedium!
+              .copyWith(color: theme.colorScheme.secondary),
         ),
         SizedBox(
           height: 50,
@@ -25,15 +26,15 @@ class RadioView extends StatelessWidget {
           children: [
             ImageIcon(
               AssetImage("assets/images/Icon metro-next.png"),
-              color: theme.primaryColor,
+              color: theme.colorScheme.onSecondary,
             ),
             ImageIcon(
               AssetImage("assets/images/Icon awesome-play.png"),
-              color: theme.primaryColor,
+              color: theme.colorScheme.onSecondary,
               size: 45,
             ),
             ImageIcon(AssetImage("assets/images/Group 7.png"),
-                color: theme.primaryColor)
+                color: theme.colorScheme.onSecondary)
           ],
         )
       ],

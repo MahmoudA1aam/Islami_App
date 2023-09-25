@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:isalmi/core/theme/application_theme.dart';
 import 'package:isalmi/moduls/quran_view/quran_details_view.dart';
 import 'package:isalmi/moduls/quran_view/widget/quran_items.dart';
 
@@ -128,9 +127,8 @@ class QuranView extends StatelessWidget {
     return Column(
       children: [
         Image.asset("assets/images/quran_image.png"),
-        Divider(
-          color: theme.primaryColor,
-          thickness: 1.2,
+        const Divider(
+          thickness: 1.4,
           height: 5,
         ),
         Row(
@@ -142,8 +140,8 @@ class QuranView extends StatelessWidget {
               style: theme.textTheme.bodyMedium,
             )),
             Container(
-              width: 1.2,
-              color: theme.primaryColor,
+              width: 1.4,
+              color: theme.colorScheme.onSecondary,
               height: 45,
             ),
             Expanded(
@@ -154,9 +152,8 @@ class QuranView extends StatelessWidget {
             ))
           ],
         ),
-        Divider(
-          color: theme.primaryColor,
-          thickness: 1.2,
+        const Divider(
+          thickness: 1.4,
           height: 5,
         ),
         Expanded(
