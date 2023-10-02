@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ApplicationTheme {
-  static bool isDark = false;
+  static bool isDark = true;
   static ThemeData lightTheme = ThemeData(
       dividerColor: const Color(0xFFB7935F),
       colorScheme: ColorScheme.fromSeed(
@@ -27,7 +27,6 @@ class ApplicationTheme {
         bodyLarge: GoogleFonts.elMessiri(
             fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
       ),
-      primaryColor: const Color(0xFFB7935F),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Color(0xFFB7935F),
         type: BottomNavigationBarType.fixed,
@@ -73,7 +72,6 @@ class ApplicationTheme {
         bodyLarge: GoogleFonts.elMessiri(
             fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
       ),
-      primaryColor: const Color(0xFFB7935F),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Color(0xFF141A2E),
         type: BottomNavigationBarType.fixed,

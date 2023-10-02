@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:isalmi/core/theme/application_theme.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/provider/app_provider.dart';
 
 class TasbehView extends StatefulWidget {
   const TasbehView({super.key});
@@ -13,11 +15,19 @@ class _TasbehViewState extends State<TasbehView> {
   int cotTasbeh = 0;
 
   List<String> allAdaya = [
-    "سبحان الله",
-    "ان لله وان اليه راجعون",
-    "الحمد للله",
-    "اللهم صلي وسلم علي سيدنا محمد",
-    "سبحان ربه الاعلي"
+    "سُبْحَانَ اللَّهِ",
+    "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+    "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ ",
+    "سُبْحَانَ اللهِ العَظِيمِ وَبِحَمْدِهِ",
+    "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ",
+    "للا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهَِّ",
+    "الْحَمْدُ للّهِ رَبِّ الْعَالَمِينَ",
+    "الْلَّهُم صَلِّ وَسَلِم وَبَارِك عَلَى سَيِّدِنَا مُحَمَّد",
+    "أستغفر الله",
+    "سُبْحَانَ الْلَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا الْلَّهُ، وَالْلَّهُ أَكْبَرُ",
+    "لَا إِلَهَ إِلَّا اللَّهُ",
+    "الْلَّهُ أَكْبَرُ ",
+    "الْحَمْدُ لِلَّهِ حَمْدًا كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ"
   ];
 
   @override
@@ -25,16 +35,16 @@ class _TasbehViewState extends State<TasbehView> {
     var theme = Theme.of(context);
 
     var text = adaya();
-
+    var appProvider = Provider.of<AppProvider>(context);
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 140, bottom: 30),
+          padding: const EdgeInsets.only(top: 90, bottom: 30),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Stack(
-                alignment: const AlignmentDirectional(0.3, -2.2),
+                alignment: const Alignment(0.3, -2.2),
                 children: [
                   GestureDetector(
                       onTap: () {
@@ -44,11 +54,11 @@ class _TasbehViewState extends State<TasbehView> {
                         });
                       },
                       child: Image.asset("assets/images/body_of_seb7a.png",
-                          color: ApplicationTheme.isDark
+                          color: appProvider.isDark()
                               ? Color(0xFFFACC1D)
                               : Color(0xFFB7935F))),
                   Image.asset("assets/images/head_of_seb7a.png",
-                      color: ApplicationTheme.isDark
+                      color: appProvider.isDark()
                           ? Color(0xFFFACC1D)
                           : Color(0xFFB7935F)),
                 ],
@@ -56,8 +66,7 @@ class _TasbehViewState extends State<TasbehView> {
             ],
           ),
         ),
-        Text(
-          "عدد التسبيحات",
+        Text("عدد التسبيحات",
             style: theme.textTheme.bodyMedium!
                 .copyWith(color: theme.colorScheme.secondary)),
         const SizedBox(

@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:isalmi/core/theme/application_theme.dart';
+import 'package:isalmi/core/provider/app_provider.dart';
 import 'package:isalmi/layout/home_layout.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,9 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
     });
 
     var mediaQuery = MediaQuery.of(context).size;
+    var appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
       body: Image.asset(
-        ApplicationTheme.isDark
+        appProvider.isDark()
             ? "assets/images/splash_dark.png"
             : "assets/images/splash_light.png",
         fit: BoxFit.cover,

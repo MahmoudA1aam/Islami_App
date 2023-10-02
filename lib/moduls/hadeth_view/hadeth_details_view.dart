@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:isalmi/moduls/hadeth_view/hadeth_view.dart';
+import 'package:provider/provider.dart';
 
-import '../../core/theme/application_theme.dart';
+import '../../core/provider/app_provider.dart';
 
 class HadethDetailsView extends StatelessWidget {
   const HadethDetailsView({super.key});
@@ -14,10 +15,11 @@ class HadethDetailsView extends StatelessWidget {
     var mediaquery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     var argu = ModalRoute.of(context)!.settings.arguments as HadethContent;
+    var appProvider = Provider.of<AppProvider>(context);
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(ApplicationTheme.isDark
+                image: AssetImage(appProvider.isDark()
                     ? "assets/images/background_dark.png"
                     : "assets/images/background.png"),
                 fit: BoxFit.cover)),

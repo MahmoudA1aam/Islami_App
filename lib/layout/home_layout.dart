@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:isalmi/core/theme/application_theme.dart';
 import 'package:isalmi/moduls/Radio_view/radio_view.dart';
 import 'package:isalmi/moduls/hadeth_view/hadeth_view.dart';
 import 'package:isalmi/moduls/quran_view/quran_view.dart';
 import 'package:isalmi/moduls/setting_view/setting_view.dart';
 import 'package:isalmi/moduls/tasbeh_view/tasbeh_view.dart';
+import 'package:provider/provider.dart';
+
+import '../core/provider/app_provider.dart';
 
 class HomeLayout extends StatefulWidget {
   HomeLayout({super.key});
@@ -29,10 +31,11 @@ class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
+    var appProvider = Provider.of<AppProvider>(context);
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(ApplicationTheme.isDark
+                image: AssetImage(appProvider.isDark()
                     ? "assets/images/background_dark.png"
                     : "assets/images/background.png"),
                 fit: BoxFit.cover)),

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:isalmi/moduls/quran_view/quran_view.dart';
+import 'package:provider/provider.dart';
 
-import '../../core/theme/application_theme.dart';
+import '../../core/provider/app_provider.dart';
 
 class QuranDetailsView extends StatefulWidget {
   QuranDetailsView({super.key});
@@ -23,6 +24,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
     var mediaquery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     var argu = ModalRoute.of(context)?.settings.arguments as SuraDetails;
+    var appProvider = Provider.of<AppProvider>(context);
 
     if (content.isEmpty) {
       readFiles(argu.surNumber);
@@ -31,7 +33,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(ApplicationTheme.isDark
+                image: AssetImage(appProvider.isDark()
                     ? "assets/images/background_dark.png"
                     : "assets/images/background.png"),
                 fit: BoxFit.cover)),
@@ -78,7 +80,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
                     child: ListView.builder(
                       itemCount: allVerses.length,
                       itemBuilder: (context, index) => Text(
-                        "${allVerses[index]}",
+                        "${allVerses[index]}(${index + 1})",
                         style: TextStyle(
                             color: theme.colorScheme.onSurface, height: 2),
                         textAlign: TextAlign.center,
@@ -94,7 +96,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
     String text = await rootBundle.loadString("assets/file/${index}.txt");
     content = text;
     setState(() {
-      allVerses = content.split("/n");
+      allVerses = content.split("\n");
     });
   }
 }
