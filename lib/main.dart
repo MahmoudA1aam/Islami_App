@@ -13,6 +13,7 @@ void main() {
       create: (context) => AppProvider(), child: const MyApplication()));
 }
 
+///
 class MyApplication extends StatelessWidget {
   const MyApplication({super.key});
 
